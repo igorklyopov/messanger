@@ -145,4 +145,37 @@ body {
     width: var(--max-width);
   }
 }
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 5px 0;
+  background-color: var(--tertiary-dark-bg-color);
+}
+
+.header-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  padding: 0;
+  color: var(--secondary-dark-border-color);
+  background: transparent;
+}
+
+.header-button:hover, .header-button:focus {
+  color: var(--secondary-accent-bg-color);
+}
+
+.header-icon {
+  width: 10px;
+  height: 10px;
+  fill: currentColor;
+}
+
+#line {
+  padding-top: 8px;
+}
 /*# sourceMappingURL=main.css.map */
