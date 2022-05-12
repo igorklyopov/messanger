@@ -116,6 +116,33 @@
           </div>
           <ul class="list dialog-list js-dialog-list"></ul>
         </section>
+        <section class="chat">
+          <div class="chat-header">
+            <h2 class="chat-title">Чат</h2>
+            <p class="chat-info js-participant-count"></p>
+          </div>
+          <div id="chat-view" class="chat-view"></div>
+          <div class="chat-footer">
+            <form class="chat-footer-form">
+              <textarea
+                name="message"
+                id="message"
+                cols=""
+                rows=""
+                placeholder="Введите сообщение..."
+                autofocus
+                class="chat-footer-input"
+              ></textarea>
+              <button
+                type="submit"
+                disabled
+                class="button basic-btn send-message-btn js-send-message-btn"
+              >
+                Отправить
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
     </div>
   </body>
