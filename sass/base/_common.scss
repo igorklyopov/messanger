@@ -1,4 +1,11 @@
 body {
+  // font-family: 'Ubuntu'; // TODO add font 'Ubuntu'
+  font-size: var(--primary-font-size);
+  font-weight: var(--regular-font-weight);
+  color: var(--primary-light-text-color);
+  background-color: var(--primary-dark-bg-color);
+
+  overflow: hidden;
 }
 
 .link {
@@ -15,4 +22,26 @@ body {
   border: none;
   font-family: inherit;
   line-height: inherit;
+}
+
+.page-wrap {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  // &.is-hidden{
+  //   display: none;
+  // }
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+
+  height: 430px;
+}
+
+.is-hidden {
+  display: none;
 }
