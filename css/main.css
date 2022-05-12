@@ -178,4 +178,101 @@ body {
 #line {
   padding-top: 8px;
 }
+
+.sidebar {
+  position: relative;
+  flex-basis: 32%;
+  overflow: hidden;
+  margin-right: 1px;
+  padding-bottom: 70px;
+  background-color: var(--secondary-dark-bg-color);
+}
+
+.sidebar-header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px 10px 15px;
+  background-color: inherit;
+}
+
+.sidebar-menu-btn {
+  margin-right: 10px;
+  color: var(--secondary-light-text-color-dark-tint-2);
+  background-color: transparent;
+}
+
+.sidebar-menu-btn:hover, .sidebar-menu-btn:focus {
+  color: var(--primary-accent-text-color);
+}
+
+.sidebar-menu-btn .burger-menu-icon {
+  fill: currentColor;
+}
+
+.sidebar-search-input-label {
+  display: block;
+}
+
+.sidebar-search-input {
+  padding: 10px;
+  color: var(--primary-light-text-color);
+  background-color: var(--tertiary-dark-bg-color);
+  border: none;
+  border-radius: 5px;
+}
+
+.sidebar-search-input::placeholder {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--secondary-light-text-color-dark-tint-2);
+}
+
+.sidebar-search-input:hover, .sidebar-search-input:focus {
+  outline: none;
+}
+
+.dialog-list {
+  max-height: 100%;
+  overflow-y: auto;
+  margin-top: 60px;
+  margin-bottom: 0;
+  padding-left: 15px;
+  padding-right: 20px;
+}
+
+.dialog-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dialog-item:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.contact-avatar {
+  display: block;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.dialog-info {
+  word-break: break-all;
+}
+
+.contact-name {
+  margin-bottom: 5px;
+}
+
+.contact-last-message {
+  margin-bottom: 0;
+  color: var(--secondary-light-text-color);
+}
 /*# sourceMappingURL=main.css.map */

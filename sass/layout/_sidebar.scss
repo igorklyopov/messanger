@@ -1,0 +1,126 @@
+.sidebar {
+  position: relative;
+
+  flex-basis: 32%;
+  overflow: hidden;
+
+  margin-right: 1px;
+  padding-bottom: 70px;
+
+  background-color: var(--secondary-dark-bg-color);
+}
+
+.sidebar-header {
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 20px 10px 15px;
+
+  background-color: inherit;
+}
+
+.sidebar-menu-btn {
+  margin-right: 10px;
+
+  color: var(--secondary-light-text-color-dark-tint-2);
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-accent-text-color);
+  }
+
+  & .burger-menu-icon {
+    fill: currentColor;
+  }
+}
+
+.sidebar-search-form {
+}
+
+.sidebar-search-input-label {
+  display: block;
+}
+
+.sidebar-search-input {
+  padding: 10px;
+
+  color: var(--primary-light-text-color);
+  background-color: var(--tertiary-dark-bg-color);
+  border: none;
+  border-radius: 5px;
+
+  &::placeholder {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--secondary-light-text-color-dark-tint-2);
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+.dialog-list {
+  max-height: 100%;
+  overflow-y: auto;
+
+  margin-top: 60px;
+  margin-bottom: 0;
+  padding-left: 15px;
+  padding-right: 20px;
+}
+
+.dialog-item {
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  // &:hover,
+  // &:focus {
+
+  //   background-color: var(--secondary-dark-bg-color-tint);
+  // }
+}
+
+.contact-avatar {
+  $size: 50px;
+
+  display: block;
+
+  width: $size;
+  min-width: $size;
+  height: $size;
+
+  margin-right: 10px;
+
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.contact-avatar-img {
+}
+
+.dialog-info {
+  word-break: break-all;
+}
+
+.contact-name {
+  margin-bottom: 5px;
+}
+
+.contact-last-message {
+  margin-bottom: 0;
+
+  color: var(--secondary-light-text-color);
+}
