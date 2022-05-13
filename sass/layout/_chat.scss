@@ -1,0 +1,134 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 68%;
+
+  border-right: 1px solid var(--secondary-dark-bg-color);
+}
+
+.chat-header {
+  padding: 10px 20px;
+
+  background-color: var(--secondary-dark-bg-color);
+}
+
+.chat-title {
+  margin-bottom: 10px;
+
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.chat-info {
+  margin-bottom: 0;
+}
+
+.chat-view {
+  flex-grow: 1;
+  overflow-y: auto;
+
+  padding: 22px 10px;
+}
+
+.message {
+  display: flex;
+
+  margin-bottom: 5px;
+}
+
+.contact-message {
+  justify-content: flex-start;
+
+  & .message-author-avatar {
+    margin-right: 10px;
+  }
+}
+
+.user-message {
+  justify-content: flex-end;
+
+  & .message-content {
+    background-color: var(--secondary-accent-bg-color);
+  }
+
+  & .message-author-avatar {
+    margin-left: 10px;
+  }
+}
+
+.message-author-avatar {
+  $size: 34px;
+
+  display: block;
+
+  width: $size;
+  min-width: $size;
+  height: $size;
+  overflow: hidden;
+
+  border-radius: 50%;
+}
+
+.message-author-avatar-img {
+}
+
+.message-content {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 50%;
+
+  padding: 10px 10px 10px 15px;
+
+  background-color: var(--secondary-dark-bg-color-tint);
+  border-radius: 5px;
+}
+
+.message-text {
+  max-width: 170px;
+
+  margin-right: 15px;
+  margin-bottom: 0;
+}
+
+.message-time {
+  align-self: flex-end;
+
+  color: var(--secondary-light-text-color-dark-tint-3);
+}
+
+.chat-footer {
+  padding: 0 15px;
+
+  background-color: var(--secondary-dark-bg-color);
+}
+
+.chat-footer-form {
+  display: flex;
+  align-items: center;
+}
+
+.chat-footer-input {
+  width: 100%;
+  resize: none;
+
+  margin-right: 10px;
+  padding-top: 15px;
+  padding-right: 15px;
+
+  color: var(--primary-light-text-color);
+  background-color: transparent;
+  border: none;
+
+  &::placeholder {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--secondary-light-text-color-dark-tint);
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
