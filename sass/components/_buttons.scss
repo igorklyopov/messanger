@@ -1,0 +1,29 @@
+.basic-btn {
+  padding: 5px;
+
+  color: var(--primary-light-text-color);
+  background-color: var(--primary-accent-bg-color);
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--secondary-accent-bg-color);
+  }
+
+  &:disabled {
+    background-color: var(--primary-accent-bg-color);
+    cursor: auto;
+  }
+}
+
+.enter-button {
+  min-width: 132px;
+  min-height: 42px;
+
+  margin-top: 25px;
+  text-transform: uppercase;
+}
+
+.send-message-btn {
+  min-width: 112px;
+}
