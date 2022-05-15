@@ -16,10 +16,8 @@ if (isLoggedIn) {
 // ===========================
 
 // async function getData() {
-//   return await fetch('../data/user.json').then(
-//     res => res.json(),
-//   );
+//   return await fetch(`${BASE_URL}/data/dialogs.json`).then(res => res.json());
 // }
 
 // const userData = getData();
-//  console.log(userData);
+// console.log(userData);

@@ -3,8 +3,16 @@
   flex-direction: column;
   flex-basis: 68%;
 
+  max-width: 100%;
+
   border-right: 1px solid var(--secondary-dark-bg-color);
 }
+// ----------->
+.chat-wrap {
+  max-width: 550px;
+  margin: 0 auto;
+}
+// <-----------------
 
 .chat-header {
   padding: 10px 20px;
@@ -89,6 +97,8 @@
 
   margin-right: 15px;
   margin-bottom: 0;
+
+  word-break: break-word;
 }
 
 .message-time {

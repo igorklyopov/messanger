@@ -305,11 +305,17 @@ body {
 
 .sidebar {
   position: relative;
+  max-width: 100%;
   flex-basis: 32%;
   overflow: hidden;
   margin-right: 1px;
   padding-bottom: 70px;
   background-color: var(--secondary-dark-bg-color);
+}
+
+.sidebar-wrap {
+  max-width: 260px;
+  margin: 0 auto;
 }
 
 .sidebar-header {
@@ -404,7 +410,13 @@ body {
   display: flex;
   flex-direction: column;
   flex-basis: 68%;
+  max-width: 100%;
   border-right: 1px solid var(--secondary-dark-bg-color);
+}
+
+.chat-wrap {
+  max-width: 550px;
+  margin: 0 auto;
 }
 
 .chat-header {
@@ -475,6 +487,7 @@ body {
   max-width: 170px;
   margin-right: 15px;
   margin-bottom: 0;
+  word-break: break-word;
 }
 
 .message-time {

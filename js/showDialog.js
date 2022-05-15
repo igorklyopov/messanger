@@ -1,10 +1,10 @@
 const chatViewRef = document.getElementById('chat-view');
 
-function showDialog(id) {
+function showDialog(id, oldMessagesCount = 0) {
   const dialog = DIALOGS.find(item => item.id === id);
 
-  const messagesMarkup = dialog.messages.map(
-    ({ id, author, message, time }) => {
+  function makeMessagesMarkup(data) {
+    return data.map(({ id, author, message, time }) => {
       const isUserAuthor = author.name === USER_NAME;
 
       const formattedTime = new Date(time).toLocaleString('Ru-ru', {
@@ -13,7 +13,7 @@ function showDialog(id) {
       });
 
       const userMessageMarkup = `
-      <div id="${id}" class="message user-message">
+      <div id="${id}" class="message user-message js-message">
               <div class="message-content">
                 <p class="message-text">
                   ${message}
@@ -39,7 +39,7 @@ function showDialog(id) {
       `;
 
       const contactMessageMarkup = `
-      <div id="${id}" class="message contact-message">
+      <div id="${id}" class="message contact-message js-message">
                   <picture class="message-author-avatar">
                     <!-- <source
                       srcset="
@@ -69,12 +69,25 @@ function showDialog(id) {
       } else {
         return contactMessageMarkup;
       }
-    },
-  );
+    });
+  }
+
+  let messagesMarkup = [];
+  const newMessagesData = dialog.messages.slice(oldMessagesCount);
+
+  if (oldMessagesCount > 0) {
+    messagesMarkup = makeMessagesMarkup(newMessagesData);
+  } else {
+    messagesMarkup = makeMessagesMarkup(dialog.messages);
+  }
 
   const formattedMessagesMarkup = formatMarkupString(messagesMarkup, 'div');
 
-  chatViewRef.innerHTML = formattedMessagesMarkup;
-  chatViewRef.dataset.openDialog = dialog.id;
-  localStorage.setItem('last_dialog', dialog.id);
+  if (oldMessagesCount > 0) {
+    chatViewRef.insertAdjacentHTML('beforeend', formattedMessagesMarkup);
+  } else {
+    chatViewRef.innerHTML = formattedMessagesMarkup;
+    chatViewRef.dataset.openDialog = dialog.id;
+    localStorage.setItem('last_dialog', dialog.id);
+  }
 }

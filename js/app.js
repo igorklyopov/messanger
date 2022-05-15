@@ -42,6 +42,8 @@ function onInputMessage(e) {
 
 function onMessageBtnClick(e) {
   e.preventDefault();
+  
+  const oldMessagesCount = chatViewRef.querySelectorAll('.js-message').length;
 
   if (inputMessageRef.value.trim() === '') {
     return;
@@ -49,21 +51,24 @@ function onMessageBtnClick(e) {
 
   const newMessage = {
     id: Date.now() + 1,
-    author: USER_NAME,
+    author: {
+      name: USER_NAME,
+      avatar: USER_AVATAR,
+    },
     message: inputMessageRef.value.trim(),
     time: Date.now(),
   };
 
-  const currentDialogId = 'd1';
+  const currentDialogId = chatViewRef.dataset.openDialog;
 
-  const currentDialog = DIALOG.find(dialog => dialog.id === currentDialogId);
-  console.log(currentDialog);
+  const currentDialog = DIALOGS.find(dialog => dialog.id === currentDialogId);
+
   currentDialog.messages.push(newMessage);
+
+  showDialog(currentDialogId, oldMessagesCount);
 
   inputMessageRef.value = '';
   sendMessageBtnRef.disabled = true;
-
-  console.log(newMessage);
 }
 
 // ====================

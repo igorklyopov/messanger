@@ -1,6 +1,7 @@
 .sidebar {
   position: relative;
 
+  max-width: 100%;
   flex-basis: 32%;
   overflow: hidden;
 
@@ -9,7 +10,12 @@
 
   background-color: var(--secondary-dark-bg-color);
 }
-
+// ----------->
+.sidebar-wrap {
+  max-width: 260px;
+  margin: 0 auto;
+}
+// <-----------------
 .sidebar-header {
   position: fixed;
 
@@ -88,7 +94,6 @@
 
   &:hover,
   &:focus {
-    
     // background-color: var(--secondary-dark-bg-color-tint);
   }
 }
