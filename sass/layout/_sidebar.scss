@@ -10,20 +10,12 @@
 
   background-color: var(--secondary-dark-bg-color);
 }
-// ----------->
-.sidebar-wrap {
-  max-width: 260px;
-  margin: 0 auto;
-}
-// <-----------------
-.sidebar-header {
-  position: fixed;
 
+.sidebar-header {
   display: flex;
   align-items: center;
-  justify-content: center;
 
-  padding: 10px 20px 10px 15px;
+  padding: 10px 20px 20px 15px;
 
   background-color: inherit;
 }
@@ -45,6 +37,7 @@
 }
 
 .sidebar-search-form {
+  flex-grow: 1;
 }
 
 .sidebar-search-input-label {
@@ -52,6 +45,9 @@
 }
 
 .sidebar-search-input {
+  width: 100%;
+  max-width: 300px;
+
   padding: 10px;
 
   color: var(--primary-light-text-color);
@@ -76,10 +72,11 @@
   max-height: 100%;
   overflow-y: auto;
 
-  margin-top: 60px;
+  margin-top: 0;
   margin-bottom: 0;
   padding-left: 15px;
   padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 .dialog-item {
@@ -117,7 +114,7 @@
 }
 
 .dialog-info {
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .contact-name {
