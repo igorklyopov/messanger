@@ -1,8 +1,5 @@
 // showModalLogin();
 // showApp();
-// (() => {
-
-// })();
 
 let isLoggedIn = true;
 
@@ -13,11 +10,11 @@ if (isLoggedIn) {
   showModalLogin();
 }
 
-// ===========================
 
-// async function getData() {
-//   return await fetch(`${BASE_URL}/data/dialogs.json`).then(res => res.json());
-// }
+showDialogList(DIALOGS);
 
-// const userData = getData();
-// console.log(userData);
+// ====================
+const lastDialogId = localStorage.getItem('last_dialog');
+if (lastDialogId) {
+  showDialog(lastDialogId);
+}

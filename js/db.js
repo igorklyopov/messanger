@@ -124,6 +124,31 @@ const DIALOGS = [
       },
     ],
   },
+  {
+    id: 'd3',
+    image: './images/avatars/user08.png',
+    participants: [USER_NAME, 'Иван Иванов'],
+    messages: [
+      {
+        id: 1652676926099,
+        author: {
+          name: 'Иван Иванов',
+          avatar: './images/avatars/user08.png',
+        },
+        message: 'Hello, amigo:)!',
+        time: 1652676926098,
+      },
+      {
+        id: 1652677046099,
+        author: {
+          name: USER_NAME,
+          avatar: USER_AVATAR,
+        },
+        message: 'Hi',
+        time: 1652677046098,
+      },
+    ],
+  },
 ];
 
 const contact = {
