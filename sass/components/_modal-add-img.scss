@@ -10,6 +10,26 @@
   background-color: var(--secondary-dark-bg-color);
 }
 
+.close-user-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 10px 20px;
+
+  color: var(--secondary-light-text-color-dark-tint-2);
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-accent-text-color);
+  }
+
+  & svg {
+    width: 12px;
+  }
+}
+
 .modal-add-img {
 }
 
@@ -23,7 +43,52 @@
   overflow: hidden;
 }
 
+.user-avatar-wrap {
+  $size: 50px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: $size;
+  height: $size;
+
+  background-color: var(--tertiary-dark-bg-color);
+  border-radius: 50%;
+
+  &:hover,
+  &:focus {
+    .change-avatar-btn {
+      display: block;
+    }
+  }
+}
+
 .user-avatar-img {
+}
+
+.change-avatar-btn {
+  $size: 40px;
+
+  position: absolute;
+  top: 5px;
+  left: 5px;
+
+  display: none;
+
+  width: $size;
+  height: $size;
+  padding: 0;
+
+  color: var(--primary-light-text-color);
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .add-img-description {

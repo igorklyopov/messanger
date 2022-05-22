@@ -1,10 +1,14 @@
 // ====== User menu ======>
+
 const openUserMenuBtnRef = document.querySelector('.js-open-user-menu-btn');
 const closeUserMenuBtnRef = document.querySelector('.js-close-user-menu-btn');
 const userMenuRef = document.querySelector('.js-user-menu');
+const changeAvatarBtnRef = document.querySelector('.js-change-avatar-btn');
+const modalAddImgRef = document.querySelector('.js-modal-add-img');
 
 openUserMenuBtnRef.addEventListener('click', openUserMenu);
 closeUserMenuBtnRef.addEventListener('click', closeUserMenu);
+changeAvatarBtnRef.addEventListener('click', openAddImgModal);
 
 function openUserMenu() {
   userMenuRef.classList.remove('is-hidden');
@@ -12,6 +16,10 @@ function openUserMenu() {
 
 function closeUserMenu() {
   userMenuRef.classList.add('is-hidden');
+}
+
+function openAddImgModal() {
+  modalAddImgRef.classList.remove('is-hidden');
 }
 
 // <====== Change user avatar ======
@@ -103,7 +111,7 @@ function saveAvatarImg(e) {
 
   const linkAvatarEl = document.createElement('a');
   linkAvatarEl.href = canvasAvatarRef.toDataURL('image/jpg');
-  linkAvatarEl.setAttribute('download', 'user-avatar1.jpg');
+  linkAvatarEl.setAttribute('download', 'user-avatar.jpg');
   linkAvatarEl.click();
 }
 
