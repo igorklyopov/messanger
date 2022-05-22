@@ -159,6 +159,7 @@ function onMessageBtnClick(e) {
 
   inputMessageRef.value = '';
   sendMessageBtnRef.disabled = true;
+  chatViewRef.scrollTop = chatViewRef.scrollHeight;
 }
 
 // <====== Chat END ======

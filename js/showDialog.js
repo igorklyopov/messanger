@@ -87,7 +87,9 @@ function showDialog(id, oldMessagesCount = 0) {
     chatViewRef.insertAdjacentHTML('beforeend', formattedMessagesMarkup);
   } else {
     chatViewRef.innerHTML = formattedMessagesMarkup;
+    chatViewRef.scrollTop = chatViewRef.scrollHeight;
     chatViewRef.dataset.openDialog = dialog.id;
+
     localStorage.setItem('last_dialog', dialog.id);
   }
 }
