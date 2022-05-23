@@ -1,0 +1,44 @@
+.add-img {
+  position: relative;
+
+  width: 375px;
+  height: 450px;
+  padding: 30px 40px;
+
+  background-color: var(--secondary-dark-bg-color);
+  border-radius: 5px;
+}
+
+.canvas-avatar {
+  display: block;
+
+  margin: 0 auto;
+  margin-bottom: 40px;
+
+  background-color: black;
+  border-radius: 50%;
+  cursor: grab;
+}
+
+.add-img-input-label {
+  display: block;
+
+  width: fit-content;
+
+  margin: 40% auto 0;
+  padding: 10px;
+
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.add-img-buttons {
+  text-align: right;
+}
+
+.cancel-button {
+  margin-right: 10px;
+}
+
+.save-button {
+}

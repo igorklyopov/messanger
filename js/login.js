@@ -83,5 +83,7 @@ function showModalLogin() {
 
   function closeLoginModal() {
     modalLoginRef.remove();
+
+    modalLoginCloseBtnRef.removeEventListener('click', closeLoginModal);
   }
 }

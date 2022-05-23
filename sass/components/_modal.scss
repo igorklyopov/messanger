@@ -1,0 +1,47 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100vw;
+  height: 100vh;
+
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(9, 16, 26, 0.9);
+
+  &.is-open {
+    opacity: 1;
+    pointer-events: initial;
+  }
+}
+
+.modal-content {
+  position: relative;
+  width: fit-content;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+
+  padding: 15px;
+
+  color: var(--secondary-dark-border-color);
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    color: var(--primary-light-text-color);
+  }
+
+  & svg{
+    width: 15px;
+  }
+}

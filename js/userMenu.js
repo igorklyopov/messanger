@@ -4,11 +4,11 @@ const openUserMenuBtnRef = document.querySelector('.js-open-user-menu-btn');
 const closeUserMenuBtnRef = document.querySelector('.js-close-user-menu-btn');
 const userMenuRef = document.querySelector('.js-user-menu');
 const changeAvatarBtnRef = document.querySelector('.js-change-avatar-btn');
-const modalAddImgRef = document.querySelector('.js-modal-add-img');
+const modalAddImgRef = document.querySelector('.js-modal');
 
 openUserMenuBtnRef.addEventListener('click', openUserMenu);
 closeUserMenuBtnRef.addEventListener('click', closeUserMenu);
-changeAvatarBtnRef.addEventListener('click', openAddImgModal);
+changeAvatarBtnRef.addEventListener('click', openModal);
 
 function openUserMenu() {
   userMenuRef.classList.remove('is-hidden');
@@ -18,18 +18,33 @@ function closeUserMenu() {
   userMenuRef.classList.add('is-hidden');
 }
 
-function openAddImgModal() {
-  modalAddImgRef.classList.remove('is-hidden');
-}
-
 // <====== Change user avatar ======
 
-const addImgInputRef = document.querySelector('.add-img-input');
-const canvasWrapRef = document.querySelector('.canvas-wrap');
 const canvasAvatarRef = document.getElementById('canvas-avatar');
-const saveImgBtnRef = document.querySelector('.js-save-img-button');
+const addImgFormRef = document.getElementById('add-img-form');
+const saveImgBtnRef = addImgFormRef.querySelector('.js-load-img-btn');
 
-saveImgBtnRef.addEventListener('click', saveAvatarImg);
+addImgFormRef.saveButton.addEventListener('click', saveAvatarImg);
+addImgFormRef.cancelButton.addEventListener('click', resetAddAvatar);
+
+function toggleLoadImgBtn() {
+  saveImgBtnRef.classList.toggle('is-hidden');
+}
+
+function toggleCanvasAvatar() {
+  canvasAvatarRef.classList.toggle('is-hidden');
+}
+
+function resetAddAvatar() {
+  toggleCanvasAvatar();
+  toggleLoadImgBtn();
+  toggleAddAvatarButtons();
+}
+
+function toggleAddAvatarButtons() {
+  addImgFormRef.saveButton.classList.toggle('is-hidden');
+  addImgFormRef.cancelButton.classList.toggle('is-hidden');
+}
 
 async function editImg() {
   const context = canvasAvatarRef.getContext('2d');
@@ -43,10 +58,16 @@ async function editImg() {
 
   let image = originalImage;
 
+  toggleCanvasAvatar();
+  toggleAddAvatarButtons();
+
   canvasAvatarRef.width = 280;
   canvasAvatarRef.height = 280;
 
+  addImgFormRef.loadAvatar.addEventListener('change', addImg);
+
   update();
+
   function update() {
     requestAnimationFrame(update);
 
@@ -80,8 +101,6 @@ async function editImg() {
     canvasAvatarRef.width = canvasAvatarRef.width;
   }
 
-  addImgInputRef.addEventListener('change', addImg);
-
   function addImg(e) {
     const [file] = e.target.files;
     const fileReader = new FileReader();
@@ -89,6 +108,10 @@ async function editImg() {
     if (file.size > 300 * 1024) {
       console.log('very big!');
     } else {
+      toggleLoadImgBtn();
+      toggleCanvasAvatar();
+      toggleAddAvatarButtons();
+
       fileReader.readAsDataURL(file);
       fileReader.onload = () => {
         const newImage = new Image();
@@ -102,7 +125,9 @@ async function editImg() {
   }
 }
 
-editImg();
+const isCanvasHidden = canvasAvatarRef.classList.contains('is-hidden');
+
+if (!isCanvasHidden) editImg();
 
 //-----------------
 

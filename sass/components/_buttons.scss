@@ -27,3 +27,25 @@
 .send-message-btn {
   min-width: 112px;
 }
+
+.transparent-btn {
+  padding: 5px 10px;
+
+  font-size: 15px;
+  color: var(--primary-accent-text-color);
+  text-transform: uppercase;
+  background-color: transparent;
+  border-radius: 5px;
+
+  &:hover,
+  &:focus {
+    background-color: var(--tertiary-dark-bg-color-tint);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    cursor: auto;
+  }
+}
+
+
