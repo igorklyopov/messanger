@@ -1,7 +1,8 @@
-function openModal() {
-  modalAddImgRef.classList.add('is-open');
+const modalRef = document.querySelector('.js-modal');
 
-  const closeModalBtnRef = modalAddImgRef.querySelector('.js-close-modal-btn');
+function openModal() {
+  const closeModalBtnRef = modalRef.querySelector('.js-close-modal-btn');
+  modalRef.classList.add('is-open');
 
   closeModalBtnRef.addEventListener('click', onCloseModalBtnClick);
   window.addEventListener('keydown', closeModalAlt);
@@ -9,7 +10,7 @@ function openModal() {
 }
 
 function closeModal() {
-  modalAddImgRef.classList.remove('is-open');
+  modalRef.classList.remove('is-open');
 }
 
 function onCloseModalBtnClick() {

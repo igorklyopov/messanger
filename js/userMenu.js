@@ -4,7 +4,7 @@ const openUserMenuBtnRef = document.querySelector('.js-open-user-menu-btn');
 const closeUserMenuBtnRef = document.querySelector('.js-close-user-menu-btn');
 const userMenuRef = document.querySelector('.js-user-menu');
 const changeAvatarBtnRef = document.querySelector('.js-change-avatar-btn');
-const modalAddImgRef = document.querySelector('.js-modal');
+
 
 openUserMenuBtnRef.addEventListener('click', openUserMenu);
 closeUserMenuBtnRef.addEventListener('click', closeUserMenu);
@@ -24,8 +24,10 @@ const canvasAvatarRef = document.getElementById('canvas-avatar');
 const addImgFormRef = document.getElementById('add-img-form');
 const saveImgBtnRef = addImgFormRef.querySelector('.js-load-img-btn');
 
-addImgFormRef.saveButton.addEventListener('click', saveAvatarImg);
-addImgFormRef.cancelButton.addEventListener('click', resetAddAvatar);
+const { saveButton, cancelButton, loadAvatar } = addImgFormRef;
+
+saveButton.addEventListener('click', saveAvatarImg);
+cancelButton.addEventListener('click', resetAddAvatar);
 
 function toggleLoadImgBtn() {
   saveImgBtnRef.classList.toggle('is-hidden');
@@ -42,8 +44,8 @@ function resetAddAvatar() {
 }
 
 function toggleAddAvatarButtons() {
-  addImgFormRef.saveButton.classList.toggle('is-hidden');
-  addImgFormRef.cancelButton.classList.toggle('is-hidden');
+  saveButton.classList.toggle('is-hidden');
+  cancelButton.classList.toggle('is-hidden');
 }
 
 async function editImg() {
@@ -64,7 +66,7 @@ async function editImg() {
   canvasAvatarRef.width = 280;
   canvasAvatarRef.height = 280;
 
-  addImgFormRef.loadAvatar.addEventListener('change', addImg);
+  loadAvatar.addEventListener('change', addImg);
 
   update();
 
