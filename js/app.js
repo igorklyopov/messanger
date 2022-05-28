@@ -1,9 +1,12 @@
-// ====== Sidebar refs======>
+// ====== Sidebar refs ======>
 const dialogListRef = document.querySelector('.js-dialog-list');
 const searchDialogInputRef = document.getElementById('search-dialog');
 
-// ====== Chat view ref======>
+// ====== Chat view ref ======>
 const chatViewRef = document.getElementById('chat-view');
+
+// ====== Participant count ref ======>
+const participantCountRef = document.querySelector('.js-participant-count');
 
 function showApp() {
   getDialogsAll()
@@ -221,9 +224,7 @@ function showApp() {
       sendMessageBtnRef.addEventListener('click', onMessageBtnClick);
       closeAppBtnRef.addEventListener('click', hideApp);
 
-      const participantCountRef = document.querySelector(
-        '.js-participant-count',
-      );
+      
 
       function showParticipantCount(id) {
         const currentDialog = DIALOGS.find(dialog => dialog.id === id);
@@ -294,8 +295,10 @@ function showApp() {
 
 function hideApp() {
   pageWrapRef.classList.add('is-hidden');
+  
   dialogListRef.innerHTML = '';
   chatViewRef.innerHTML = '';
+  participantCountRef.innerHTML = '';
 
   logOut();
 }
