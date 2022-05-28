@@ -41,32 +41,35 @@ function showModalLogin() {
           </div>
           <h2 class="login-title">Авторизация</h2>
           <p class="login-description">
-            Введите пожалуйста своё фио и ник для дальнейшей авторизации
+            Введите пожалуйста своё фио и пароль для дальнейшей авторизации
           </p>
-          <form class="login-form">
+          <form id="login-form" class="login-form">
             <label class="login-input-label">
               <span class="visually-hidden">Введите своё имя</span>
               <input
                 type="text"
-                name="username"
+                name="userNameInput"
                 id="login-input-name"
                 placeholder="Введите своё имя"
                 required
+                maxlength="200"
+                autofocus
                 class="login-input"
               />
             </label>
             <label class="login-input-label">
-              <span class="visually-hidden">Введите свой ник</span>
+              <span class="visually-hidden">Введите пароль</span>
               <input
-                type="text"
-                name="nickname"
-                id="login-input-nickname"
-                placeholder="Введите свой ник"
+                type="password"
+                name="passwordInput"
+                id="login-input-password"
+                placeholder="Введите пароль"
                 required
+                maxlength="8"
                 class="login-input"
               />
             </label>
-            <button type="submit" class="button basic-btn enter-button">Войти</button>
+            <button type="submit" name="loginBtn" class="button basic-btn enter-button">Войти</button>
           </form>
         </section>
       </div>
@@ -78,12 +81,45 @@ function showModalLogin() {
   const modalLoginCloseBtnRef = document.getElementById(
     'modal-login-close-btn',
   );
+  const loginFormRef = document.getElementById('login-form');
+
+  const { userNameInput, passwordInput, loginBtn } = loginFormRef;
 
   modalLoginCloseBtnRef.addEventListener('click', closeLoginModal);
+  loginBtn.addEventListener('click', logIn);
 
   function closeLoginModal() {
     modalLoginRef.remove();
 
     modalLoginCloseBtnRef.removeEventListener('click', closeLoginModal);
   }
+
+  function logIn(e) {
+    e.preventDefault();
+
+    const userName = userNameInput.value.trim();
+    const userPassword = passwordInput.value.trim();
+
+    if (userName === '' || userPassword === '') {
+      return;
+    }
+
+    const userCredentials = {
+      name: userName,
+      password: userPassword,
+    };
+
+    // for test
+    localStorage.setItem('user', JSON.stringify(userCredentials));
+
+    if (isLoggedIn()) {
+      closeLoginModal();
+      showApp();
+    }
+  }
+}
+
+function logOut() {
+  localStorage.setItem('user', '');
+  showModalLogin();
 }

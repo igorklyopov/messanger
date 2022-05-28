@@ -1,6 +1,7 @@
 const chatViewRef = document.getElementById('chat-view');
 
 function showDialog(id, oldMessagesCount = 0) {
+  
   const dialog = DIALOGS.find(item => item.id === id);
 
   function makeMessagesMarkup(data) {

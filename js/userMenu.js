@@ -5,7 +5,6 @@ const closeUserMenuBtnRef = document.querySelector('.js-close-user-menu-btn');
 const userMenuRef = document.querySelector('.js-user-menu');
 const changeAvatarBtnRef = document.querySelector('.js-change-avatar-btn');
 
-
 openUserMenuBtnRef.addEventListener('click', openUserMenu);
 closeUserMenuBtnRef.addEventListener('click', closeUserMenu);
 changeAvatarBtnRef.addEventListener('click', openModal);

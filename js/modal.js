@@ -15,8 +15,6 @@ function closeModal() {
 
 function onCloseModalBtnClick() {
   closeModal();
-
-  closeModalBtnRef.removeEventListener('click', onCloseModalBtnClick);
 }
 
 function closeModalAlt(e) {

@@ -4,6 +4,8 @@ function showApp() {
 
 function hideApp() {
   pageWrapRef.classList.add('is-hidden');
+
+  logOut();
 }
 
 // ====== Sidebar ======>
@@ -94,6 +96,7 @@ function onContactItemClick(e) {
   }
 
   showDialog(selectedDialogId);
+  showParticipantCount(selectedDialogId);
 }
 
 // <====== Sidebar END ======
@@ -109,18 +112,17 @@ closeAppBtnRef.addEventListener('click', hideApp);
 
 const participantCountRef = document.querySelector('.js-participant-count');
 
-const getParticipantCount = id => {
+function showParticipantCount(id) {
+  
   const currentDialog = DIALOGS.find(dialog => dialog.id === id);
 
-  return currentDialog.participants.length;
-};
+  const participantCount = currentDialog.participants.length;
+  const participantCountStr = participantCount.toString();
+  const lastNumber = participantCountStr.charAt(participantCountStr.length - 1);
+  const participantCountDescr = lastNumber >= 5 ? 'участников' : 'участника';
 
-const participantCount = getParticipantCount('d1');
-const participantCountStr = participantCount.toString();
-const last = participantCountStr.charAt(participantCountStr.length - 1);
-const participantCountDescr = last >= 5 ? 'участников' : 'участника';
-
-participantCountRef.innerText = `${participantCount} ${participantCountDescr}`;
+  participantCountRef.innerText = `${participantCount} ${participantCountDescr}`;
+}
 
 function onInputMessage(e) {
   e.target.value;

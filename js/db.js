@@ -1,32 +1,4 @@
-const USER = {
-  id: USER_ID,
-  name: USER_NAME,
-  password: USER_PASSWORD,
-  token: null,
-  contacts: ['c1', 'c2', 'c3'],
-  dialogs: ['d1'],
-};
-
-const CONTACTS = [
-  {
-    id: 'c1',
-    contactname: {
-      name: 'Юлия Юлина',
-      avatar: './images/avatars/avatar-3.jpg',
-    },
-    dialogs: ['d1'],
-  },
-  {
-    id: 'c2',
-    contactname: 'Алексей Алёшин',
-    dialogs: [],
-  },
-  {
-    id: 'c3',
-    contactname: 'Иван Иванов',
-    dialogs: [],
-  },
-];
+// for test
 
 const DIALOGS = [
   {
@@ -150,16 +122,3 @@ const DIALOGS = [
     ],
   },
 ];
-
-const contact = {
-  id: null,
-  contactname: '',
-  dialog: null,
-};
-
-const message = {
-  id: null,
-  author: null,
-  message: '',
-  time: null,
-};

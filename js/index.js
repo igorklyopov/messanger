@@ -1,13 +1,15 @@
-// showModalLogin();
-// showApp();
+// for test ===>
 
-let isLoggedIn = true;
+function isLoggedIn() {
+  return localStorage.getItem('user') !== '';
+}
 
-if (isLoggedIn) {
+// <=== ===
+
+if (isLoggedIn()) {
   showApp();
 } else {
   hideApp();
-  showModalLogin();
 }
 
 showDialogList(DIALOGS);
@@ -15,4 +17,5 @@ showDialogList(DIALOGS);
 const lastDialogId = localStorage.getItem('last_dialog');
 if (lastDialogId) {
   showDialog(lastDialogId);
+  showParticipantCount(lastDialogId);
 }
