@@ -9,8 +9,15 @@ openUserMenuBtnRef.addEventListener('click', openUserMenu);
 closeUserMenuBtnRef.addEventListener('click', closeUserMenu);
 changeAvatarBtnRef.addEventListener('click', openModal);
 
+const userAvatarRef = document.querySelector('.js-user-avatar');
+const USER_AVATAR_DEFAULT = './images/avatars/user-avatar-default.svg';
+
 function openUserMenu() {
   userMenuRef.classList.remove('is-hidden');
+
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  userAvatarRef.src = user.avatar !== '' ? user.avatar : USER_AVATAR_DEFAULT;
 }
 
 function closeUserMenu() {
@@ -18,7 +25,6 @@ function closeUserMenu() {
 }
 
 // <====== Change user avatar ======
-
 const canvasAvatarRef = document.getElementById('canvas-avatar');
 const addImgFormRef = document.getElementById('add-img-form');
 const saveImgBtnRef = addImgFormRef.querySelector('.js-load-img-btn');

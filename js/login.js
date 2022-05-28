@@ -41,7 +41,7 @@ function showModalLogin() {
           </div>
           <h2 class="login-title">Авторизация</h2>
           <p class="login-description">
-            Введите пожалуйста своё фио и пароль для дальнейшей авторизации
+            Введите пожалуйста своё имя и пароль для дальнейшей авторизации
           </p>
           <form id="login-form" class="login-form">
             <label class="login-input-label">
@@ -110,12 +110,14 @@ function showModalLogin() {
     };
 
     // for test
-    localStorage.setItem('user', JSON.stringify(userCredentials));
+    getUser(userCredentials).then(user => {
+      localStorage.setItem('user', JSON.stringify(user));
 
-    if (isLoggedIn()) {
-      closeLoginModal();
-      showApp();
-    }
+      if (user) {
+        closeLoginModal();
+        showApp();
+      }
+    });
   }
 }
 
@@ -123,3 +125,11 @@ function logOut() {
   localStorage.setItem('user', '');
   showModalLogin();
 }
+
+// for test ===>
+
+function isLoggedIn() {
+  return localStorage.getItem('user') !== '';
+}
+
+// <=== ===

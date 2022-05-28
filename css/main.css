@@ -234,6 +234,12 @@ body {
   display: block;
 }
 
+.user-avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 .change-avatar-btn {
   position: absolute;
   top: 5px;
