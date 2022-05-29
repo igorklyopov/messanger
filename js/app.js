@@ -224,8 +224,6 @@ function showApp() {
       sendMessageBtnRef.addEventListener('click', onMessageBtnClick);
       closeAppBtnRef.addEventListener('click', hideApp);
 
-      
-
       function showParticipantCount(id) {
         const currentDialog = DIALOGS.find(dialog => dialog.id === id);
 
@@ -295,12 +293,10 @@ function showApp() {
 
 function hideApp() {
   pageWrapRef.classList.add('is-hidden');
-  
+
   dialogListRef.innerHTML = '';
   chatViewRef.innerHTML = '';
   participantCountRef.innerHTML = '';
 
   logOut();
 }
-
-const isLogged = isLoggedIn();

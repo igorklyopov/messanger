@@ -126,10 +126,18 @@ body {
   left: 50%;
 }
 
+.page-wrap.is-rollup {
+  top: 98%;
+}
+
 .main {
   display: flex;
   justify-content: center;
   height: 430px;
+}
+
+.main.is-rollup {
+  display: none;
 }
 
 .is-hidden {

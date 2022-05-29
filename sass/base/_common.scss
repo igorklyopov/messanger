@@ -29,6 +29,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
+
+  &.is-rollup {
+    top: 98%;
+  }
 }
 
 .main {
@@ -36,6 +40,10 @@ body {
   justify-content: center;
 
   height: 430px;
+
+  &.is-rollup {
+    display: none;
+  }
 }
 
 .is-hidden {
