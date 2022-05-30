@@ -11,6 +11,8 @@ function openModal() {
 
 function closeModal() {
   modalRef.classList.remove('is-open');
+
+  if (isFullScreen()) makeFullScreen();
 }
 
 function onCloseModalBtnClick() {

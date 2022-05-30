@@ -8,19 +8,25 @@ const changePageSizeBtnRef = document.querySelector('.js-change-page-size-btn');
 hideAppBtnRef.addEventListener('click', toggleAppVisible);
 changePageSizeBtnRef.addEventListener('click', toggleFullScreen);
 
-const isFullScreen = () =>
-  pageWrapRef.clientWidth === document.body.clientWidth &&
-  pageWrapRef.clientHeight === document.body.clientHeight;
+const isFullScreen = () => localStorage.getItem('fullscreen') === 'yes';
 
-const fullscreen = localStorage.getItem('fullscreen');
+document.documentElement.addEventListener('fullscreenchange', () => {
+  if (isFullScreen() && pageWrapRef.offsetHeight > document.body.offsetHeight) {
+    makeSmallScreen();
+  }
+});
 
 function makeFullScreen() {
-  pageWrapRef.style.width = document.body.clientWidth + 'px';
-  pageWrapRef.style.height = document.body.clientHeight + 'px';
-  mainRef.style.height =
-    document.body.clientHeight - headerRef.offsetHeight + 'px';
-  mainRef.style.maxHeight =
-    document.body.clientHeight - headerRef.offsetHeight + 'px';
+  pageWrapRef.style.width = window.screen.availWidth + 'px';
+  pageWrapRef.style.height = window.screen.availHeight + 'px';
+  mainRef.style.height = window.screen.availHeight + 'px';
+  mainRef.style.maxHeight = window.screen.availHeight + 'px';
+
+  document.body.requestFullscreen();
+
+  pageWrapRef.addEventListener('fullscreenerror', () => {
+    makeSmallScreen();
+  });
 
   localStorage.setItem('fullscreen', 'yes');
 }
@@ -31,22 +37,23 @@ function makeSmallScreen() {
   mainRef.style.height = null;
   mainRef.style.maxHeight = null;
 
+  try {
+    document.body.exitFullscreen();
+  } catch (error) {
+    console.log(error);
+  }
+
   localStorage.setItem('fullscreen', 'no');
 }
 
 function toggleFullScreen() {
-  if (isFullScreen()) {
-    makeSmallScreen();
-    return;
-  } else {
+  if (!document.fullscreenElement) {
     makeFullScreen();
+  } else if (document.fullscreenEnabled) {
+    makeSmallScreen();
   }
 
   unwrapApp();
-}
-
-if (fullscreen === 'yes') {
-  makeFullScreen();
 }
 
 function toggleAppVisible() {
@@ -63,8 +70,6 @@ function toggleAppVisible() {
 function rollUpApp() {
   pageWrapRef.classList.add('is-rollup');
   mainRef.classList.add('is-rollup');
-
-  makeSmallScreen();
 }
 
 function unwrapApp() {

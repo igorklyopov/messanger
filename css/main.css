@@ -120,14 +120,18 @@ body {
 }
 
 .page-wrap {
-  transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .page-wrap.is-rollup {
-  top: 98%;
+  position: fixed;
+  top: calc(100% - 20px);
+  left: 0;
+  right: 0;
+  transform: translate(0, 0);
 }
 
 .main {
