@@ -37,11 +37,7 @@ function makeSmallScreen() {
   mainRef.style.height = null;
   mainRef.style.maxHeight = null;
 
-  try {
-    document.body.exitFullscreen();
-  } catch (error) {
-    console.log(error);
-  }
+  document.exitFullscreen().catch(err => console.log(err));
 
   localStorage.setItem('fullscreen', 'no');
 }
