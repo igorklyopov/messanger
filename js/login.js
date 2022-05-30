@@ -122,7 +122,7 @@ function showModalLogin() {
 }
 
 function logOut() {
-  localStorage.setItem('user', '');
+  localStorage.removeItem('user');
   showModalLogin();
 }
 

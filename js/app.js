@@ -11,7 +11,7 @@ const participantCountRef = document.querySelector('.js-participant-count');
 function showApp() {
   getDialogsAll()
     .then(dialogsData => {
-      const user = JSON.parse(localStorage.getItem('user'));
+      const user = JSON.parse(localStorage.getItem('user')) ?? logOut();
 
       const USER_NAME = user.name;
       const USER_AVATAR = user.avatar || USER_AVATAR_DEFAULT;
