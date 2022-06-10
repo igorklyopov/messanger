@@ -18,7 +18,7 @@
   --primary-font-size: 14px;
   --secondary-font-size: 16px;
   --regular-font-weight: 400;
-  --basic-transform-animation: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --basic-transform-animation: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --max-width: 810px;
 }
 
@@ -287,6 +287,7 @@ body {
   opacity: 0;
   pointer-events: none;
   background-color: rgba(9, 16, 26, 0.9);
+  transition: var(--basic-transform-animation);
 }
 
 .modal-backdrop.is-open {
