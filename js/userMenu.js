@@ -13,7 +13,7 @@ const userAvatarRef = document.querySelector('.js-user-avatar');
 const USER_AVATAR_DEFAULT = './images/avatars/user-avatar-default.svg';
 
 function openUserMenu() {
-  userMenuRef.classList.remove('is-hidden');
+  userMenuRef.classList.add('is-open');
 
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -21,7 +21,7 @@ function openUserMenu() {
 }
 
 function closeUserMenu() {
-  userMenuRef.classList.add('is-hidden');
+  userMenuRef.classList.remove('is-open');
 }
 
 // <====== Change user avatar ======

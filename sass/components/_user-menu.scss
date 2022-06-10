@@ -3,11 +3,18 @@
   top: 0;
   left: 0;
 
+  transform: translateX(-100%);
+  transition: var(--basic-transform-animation);
+
   width: 100%;
   height: 100%;
   padding: 20px 10px;
 
   background-color: var(--secondary-dark-bg-color);
+
+  &.is-open {
+    transform: translateX(0%);
+  }
 }
 
 .close-user-menu-btn {
